@@ -11,7 +11,7 @@ class App extends React.Component {
       <ReduxProvider store={store}>
         <View style={styles.container}>
           <Text style={styles.title}>
-            Contadores de cosas que rompió patu!!!
+            Contadores de cosas que rompió patu!
           </Text>
 
           <Controls />
