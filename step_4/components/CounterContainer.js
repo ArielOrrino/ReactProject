@@ -11,15 +11,15 @@ class CounterContainer extends React.Component {
       <View key={index} style={styles.container} >
         <Text style={styles.index}> {index + 1} </Text>
 
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.buttonRemove} onPress={() => decreaseCounter(index)} >
+            <Text style={styles.icon}>-</Text>
+          </TouchableOpacity>
+        </View>        
         <Text style={styles.counter}> {item} </Text>
-
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.buttonAdd} onPress={() => increaseCounter(index)} >
             <Text style={styles.icon}>+</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.buttonRemove} onPress={() => decreaseCounter(index)} >
-            <Text style={styles.icon}>-</Text>
           </TouchableOpacity>
         </View>
       </View>
