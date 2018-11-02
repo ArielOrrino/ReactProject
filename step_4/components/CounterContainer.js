@@ -4,25 +4,28 @@ import { connect } from 'react-redux';
 import { counterActions } from '../state/actions';
 
 class CounterContainer extends React.Component {
+
   renderCounter() {
-    const { counter, increaseCounter, decreaseCounter } = this.props;
+    const { counter, increaseCounter, decreaseCounter, addTotal, removeTotal } = this.props;
 
     return counter.items.map((item, index) => (
       <View key={index} style={styles.container} >
         <Text style={styles.index}> {index + 1} </Text>
 
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.buttonRemove} onPress={() => decreaseCounter(index)} >
+          <TouchableOpacity style={styles.buttonRemove} onPress={() => decreaseCounter(index)}>
             <Text style={styles.icon}>-</Text>
           </TouchableOpacity>
         </View>        
         <Text style={styles.counter}> {item} </Text>
+
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.buttonAdd} onPress={() => increaseCounter(index)} >
             <Text style={styles.icon}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
+
       ));
   }
 
@@ -89,6 +92,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   increaseCounter: counterActions.increaseCounter,
   decreaseCounter: counterActions.decreaseCounter,
+  addTotal: counterActions.addTotal,
+  removeTotal: counterActions.removeTotal,
 };
 
 export default connect(

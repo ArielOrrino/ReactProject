@@ -1,6 +1,6 @@
 import * as actionTypes from '../actionTypes';
 
-export const increaseCounter = index => (dispatch, getState) => {
+export const increaseCounter = index => (dispatch, getState, total) => {
   dispatch({
     type: actionTypes.INCREASE,
     selected: index,
@@ -25,3 +25,16 @@ export const removeCounter = () => (dispatch, getState) => {
     type: actionTypes.REMOVE_COUNTER,
   });
 };
+
+export const removeTotal = () => (dispatch, getState) => {
+  dispatch({
+    type: actionTypes.REMOVE_TOTAL,
+  });
+};
+
+export const addTotal = () => (dispatch, getState) => {
+  dispatch({
+    type: actionTypes.ADD_TOTAL,
+  });
+};
+
