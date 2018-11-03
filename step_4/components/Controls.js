@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: '#4A6075',
+    height: 50
   },
 
   button: {
@@ -45,7 +46,7 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = {
   addCounter: counterActions.addCounter,
   removeCounter: counterActions.removeCounter,
-};
+}; 
 
 export default connect(
   mapStateToProps,

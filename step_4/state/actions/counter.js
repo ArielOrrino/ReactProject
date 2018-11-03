@@ -1,27 +1,26 @@
 import * as actionTypes from '../actionTypes';
-import store from '../store';
-export const increaseCounter = index => (dispatch, getState) => {
+
+export const increaseCounter = index => (dispatch) => {
   dispatch({
     type: actionTypes.INCREASE,
     selected: index,
   });
-  console.log("counterActions:" + store.getState().counter.total)
 };
 
-export const decreaseCounter = index => (dispatch, getState) => {
+export const decreaseCounter = index => (dispatch) => {
   dispatch({
     type: actionTypes.DECREASE,
     selected: index,
   });
 };
 
-export const addCounter = () => (dispatch, getState) => {
+export const addCounter = () => (dispatch) => {
   dispatch({
     type: actionTypes.ADD_COUNTER,
   });
 };
 
-export const removeCounter = () => (dispatch, getState) => {
+export const removeCounter = () => (dispatch) => {
   dispatch({
     type: actionTypes.REMOVE_COUNTER,
   });

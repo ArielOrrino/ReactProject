@@ -2,19 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { counterActions } from '../state/actions';
-import store from '../state/store';
-import MuestroTot from './muestro';
-class CounterContainer extends React.Component {
- 
 
- renderMuestro() {
-  return <MuestroTot />
- }
+class CounterContainer extends React.Component { 
 
   renderCounter() {
     const { counter, increaseCounter, decreaseCounter} = this.props;
 
-    return counter.items.map((item, index, total) => (
+    return counter.items.map((item, index) => (
       <View key={index} style={styles.container} >
 
         <Text style={styles.index}> {index + 1} </Text>
@@ -31,16 +25,17 @@ class CounterContainer extends React.Component {
             <Text style={styles.icon}>+</Text>
           </TouchableOpacity>
         </View>
+
+        <Text style={styles.index}> {counter.total} </Text>
+
       </View>
       ));
   }
 
   render() {
-        console.log("counterContainer:" + store.getState().counter.total)
     return (
       <View>
-        {this.renderCounter()}
-        {this.renderMuestro()}         
+        {this.renderCounter()}         
       </View>
     );
   }

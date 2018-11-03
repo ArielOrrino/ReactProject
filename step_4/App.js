@@ -7,13 +7,10 @@ import CounterContainer from './components/CounterContainer';
 import store from './state/store';
 import MuestroTot from './components/muestro';
 
-
 class App extends React.Component {
 //  componentDidUpdate() { store.getState().counter.total }
-  render() {
 
-        console.log("APP:" + store.getState().counter.total)
- //       console.log("APPcounter:" + store.getState().counter.total)
+  render() {
     return (
 
       <ReduxProvider store={store}>
@@ -25,11 +22,10 @@ class App extends React.Component {
           <Controls />
 
           <ScrollView style={styles.scrollViewContainer}>
-            <CounterContainer />
-           
+            <CounterContainer />           
           </ScrollView>
-          {/*<Text style={styles.total}> Total:{store.getState().counter.total} </Text>*/}
-      
+
+          <MuestroTot />
         </View>
       </ReduxProvider>
     );
