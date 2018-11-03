@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 6124,
-  "expoServerNgrokUrl": "https://6e-9ee.anonymous.redux-barebones.exp.direct",
-  "packagerNgrokUrl": "https://packager.6e-9ee.anonymous.redux-barebones.exp.direct",
-  "ngrokPid": 6084
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "devToolsPort": 19002
 }
