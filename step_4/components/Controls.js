@@ -10,11 +10,11 @@ class Controls extends React.Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={addCounter} >
-          <Text style={styles.text}> Rompio algo nuevo </Text>
+          <Text style={styles.text}> Agregar Contador </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={removeCounter} >
-          <Text style={styles.text}> Arreglo algo(esto no pasa) </Text>
+          <Text style={styles.text}> Eliminar Contador </Text>
         </TouchableOpacity>
       </View>
     );
@@ -46,7 +46,7 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = {
   addCounter: counterActions.addCounter,
   removeCounter: counterActions.removeCounter,
-}; 
+};
 
 export default connect(
   mapStateToProps,
