@@ -2,14 +2,21 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { counterActions } from '../state/actions';
-
+import store from '../state/store';
+import MuestroTot from './muestro';
 class CounterContainer extends React.Component {
+ 
+
+ renderMuestro() {
+  return <MuestroTot />
+ }
 
   renderCounter() {
-    const { counter, increaseCounter, decreaseCounter, addTotal, removeTotal } = this.props;
+    const { counter, increaseCounter, decreaseCounter} = this.props;
 
-    return counter.items.map((item, index) => (
+    return counter.items.map((item, index, total) => (
       <View key={index} style={styles.container} >
+
         <Text style={styles.index}> {index + 1} </Text>
 
         <View style={styles.buttonsContainer}>
@@ -18,21 +25,22 @@ class CounterContainer extends React.Component {
           </TouchableOpacity>
         </View>        
         <Text style={styles.counter}> {item} </Text>
-
+        
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.buttonAdd} onPress={() => increaseCounter(index)} >
             <Text style={styles.icon}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
-
       ));
   }
 
   render() {
+        console.log("counterContainer:" + store.getState().counter.total)
     return (
       <View>
         {this.renderCounter()}
+        {this.renderMuestro()}         
       </View>
     );
   }
@@ -85,18 +93,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => ({
-  counter: state.counter,
-});
+const mapStateToProps = (state) => {
+ return {counter: state.counter};
+};
 
 const mapDispatchToProps = {
   increaseCounter: counterActions.increaseCounter,
   decreaseCounter: counterActions.decreaseCounter,
-  addTotal: counterActions.addTotal,
-  removeTotal: counterActions.removeTotal,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps, 
 )(CounterContainer);
+

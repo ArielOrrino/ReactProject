@@ -5,11 +5,17 @@ import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import Controls from './components/Controls';
 import CounterContainer from './components/CounterContainer';
 import store from './state/store';
+import MuestroTot from './components/muestro';
+
 
 class App extends React.Component {
-
+//  componentDidUpdate() { store.getState().counter.total }
   render() {
+
+        console.log("APP:" + store.getState().counter.total)
+ //       console.log("APPcounter:" + store.getState().counter.total)
     return (
+
       <ReduxProvider store={store}>
         <View style={styles.container}>
           <Text style={styles.title}> 
@@ -20,8 +26,10 @@ class App extends React.Component {
 
           <ScrollView style={styles.scrollViewContainer}>
             <CounterContainer />
+           
           </ScrollView>
-          <Text style={styles.total}> Total:{store.getState().counter.total} </Text>
+          {/*<Text style={styles.total}> Total:{store.getState().counter.total} </Text>*/}
+      
         </View>
       </ReduxProvider>
     );

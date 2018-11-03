@@ -3,19 +3,15 @@ import {
   DECREASE,
   ADD_COUNTER,
   REMOVE_COUNTER,
-  ADD_TOTAL,
-  REMOVE_TOTAL,
 } from '../actionTypes';
 
 import { counter as counterInitialState } from '../initialState';
 
 const counterReducer = (state = counterInitialState, action) => {
   const { items } = state;
-  const { total } = state.total;
   const { selected } = action;
   let newItems;
   let newTotal;
-
   switch (action.type) {
     case INCREASE:
       newItems = [
@@ -23,21 +19,26 @@ const counterReducer = (state = counterInitialState, action) => {
         items[selected] + 1,
         ...items.slice(selected + 1),
       ],
-      newTotal = total + 1;
+      newTotal = state.total + 1
+      state.total = newTotal
 
+      console.log("new:" +newTotal)
+      console.log("total:"+state.total)
       return {
         ...state,
         selected,
         total: newTotal,
         items: newItems,
-      };
+      }
+
     case DECREASE:
       newItems = [
         ...items.slice(0, selected),
         items[selected] - 1,
         ...items.slice(selected + 1),
       ],
-      newTotal = total - 1;
+      newTotal = state.total - 1
+      state.total = newTotal
 
       return {
         ...state,
@@ -55,29 +56,22 @@ const counterReducer = (state = counterInitialState, action) => {
         ...state,
         items: newItems,
       };
-    case REMOVE_COUNTER:
+case REMOVE_COUNTER:
       // remove the last item
+//      console.log("a borrar:"+items[selected])
+      console.log("item:"+items[items.length - 1])
+      console.log("total:"+state.total)
+      //newTotal = state.total - items[selected]
+      console.log("totalNuevo:"+state.total)
+      newTotal = state.total - items[items.length - 1]
       newItems = [
         ...items.slice(0, items.length - 1),
       ];
-
       return {
         ...state,
+        selected,
+        total: newTotal,
         items: newItems,
-      };
-      case ADD_TOTAL:
-        total1 = state.total + 1
-
-      return {
-        ...state, 
-        total: total1,       
-      };
-      case REMOVE_TOTAL:
-        state.total - 1   
-
-      return {
-        ...state,
-        
       };
     default:
       return state;
