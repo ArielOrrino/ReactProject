@@ -25,9 +25,6 @@ class CounterContainer extends React.Component {
             <Text style={styles.icon}>+</Text>
           </TouchableOpacity>
         </View>
-
-        <Text style={styles.index}> {counter.total} </Text>
-
       </View>
       ));
   }

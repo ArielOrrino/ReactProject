@@ -58,11 +58,6 @@ const counterReducer = (state = counterInitialState, action) => {
       };
 case REMOVE_COUNTER:
       // remove the last item
-//      console.log("a borrar:"+items[selected])
-      console.log("item:"+items[items.length - 1])
-      console.log("total:"+state.total)
-      //newTotal = state.total - items[selected]
-      console.log("totalNuevo:"+state.total)
       newTotal = state.total - items[items.length - 1]
       newItems = [
         ...items.slice(0, items.length - 1),

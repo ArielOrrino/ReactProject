@@ -24,7 +24,6 @@ class App extends React.Component {
           <ScrollView style={styles.scrollViewContainer}>
             <CounterContainer />           
           </ScrollView>
-
           <MuestroTot />
         </View>
       </ReduxProvider>
@@ -51,14 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  total: {
-    color: '#2c3e50',
-    fontSize: 32,
-    fontWeight: '700',
-    fontStyle: 'italic',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
 });
 
 export default App;

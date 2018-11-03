@@ -6,11 +6,11 @@ class Muestro extends React.Component {
   
   render() {
     const {counter} = this.props;
-    return counter.items.map((total) => (
+    return (
       <View style={styles.container}>        
           <Text style={styles.text}> Total: {counter.total} </Text>       
       </View>
-    ));
+    );
   }
 }
 
