@@ -1,25 +1,27 @@
 import React from 'react';
 import {StyleSheet, Text,Button, View, ScrollView} from 'react-native';
+import MuestroTot from '../step_4/components/muestro';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from '../step_4/state/store';
 const util = require('util');
 
 
 class Totales extends React.Component {
-  static navigationOptions:{
-    header: { visible:false },
-    title: 'Welcome'
-  };
+
     render() {
         return (
+        <ReduxProvider store={store}>
         <View style={styles.container}>
           <Text style={styles.title}>TOTALES</Text>
           <ScrollView>
-
+            <MuestroTot />
           </ScrollView>
           <Button
           title="Agregar"
           onPress={() => this.props.navigation.navigate('Contadores')}
           />
         </View>
+        </ReduxProvider>
       );
     }
   }
@@ -39,6 +41,7 @@ class Totales extends React.Component {
       fontStyle: 'italic',
       textAlign: 'center',
       marginTop: 0,
+      paddingTop: 20,
     },
 
     scrollViewContainer: {

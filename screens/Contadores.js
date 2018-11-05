@@ -16,7 +16,9 @@ class Contadores extends React.Component {
 
   render(){
 
-    return(
+      let arrayTot
+
+      return(
       <View style={styles.container}>
 
         <ReduxProvider store={store}>
@@ -31,11 +33,9 @@ class Contadores extends React.Component {
               <CounterContainer />
             </ScrollView>
             <MuestroTot />
+
           </View>
         </ReduxProvider>
-
-
-
           <Button
           onPress={() => this.props.navigation.navigate('Totales')}
           title= "Guardar "

@@ -6,7 +6,12 @@ import Contadores from '../screens/Contadores';
 
 
 const Navigation = createStackNavigator({
-  Totales:{screen: Totales},
+  Totales:{
+    screen: Totales,
+    navigationOptions:()=>({
+      header:null,
+      })
+    },
   Contadores:{screen: Contadores},
 });
 
